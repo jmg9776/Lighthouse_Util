@@ -1,0 +1,7 @@
+{
+  "secret_key": "96349a4649f7acd97a27048821239387f12fa0033bb95996",
+  "urls": [
+    "https://example.com",
+    "https://example.org"
+  ]
+}
