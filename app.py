@@ -4,11 +4,14 @@ import os
 from datetime import datetime
 from threading import Thread
 import secrets
+import logging
 
 app = Flask(__name__)
 
 RESULTS_DIR = 'lighthouse_results'
 os.makedirs(RESULTS_DIR, exist_ok=True)
+
+logging.basicConfig(level=logging.INFO)
 
 
 def generate_random_secret_key():
@@ -16,7 +19,8 @@ def generate_random_secret_key():
 
 
 secret_key = generate_random_secret_key()
-print(f"Generated Secret Key: {secret_key}")
+
+logging.info(f"Generated Secret Key: {secret_key}")
 
 
 def get_filename_from_url(url, version='desktop'):
@@ -153,4 +157,4 @@ def view_report(request_id, filename):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)
